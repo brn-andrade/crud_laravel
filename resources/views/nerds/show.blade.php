@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
     <html>
     <head>
         <title>CRUDE SHOW</title>
@@ -19,9 +19,12 @@
 
         <h1>Showing {{ $nerd->name }}</h1>
             <div class="jumbotron text-center">
-                <h2></h2>
+                <h2>{{$nerd->name}}</h2>
+                <p>
+                    <strong>Email:</strong>{{$nerd->email}}<br>
+                    <strong>Level:</strong>{{$nerd->nerd_level}}
+                </p>
             </div>
     </div>
-
     </body>
     </html>

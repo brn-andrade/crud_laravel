@@ -16,15 +16,20 @@
             </ul>
         </nav>
         <h1>Create a Nerd</h1>
-        {{--<div class="alert-danger">--}}
-            {{--<span>{{$errors->all()}}</span>--}}
-        {{--</div>--}}
+       @if (Session::has('message'))
+            <div class="alert alert-info">{{ Session::get('message') }}</div>
+        @endif
 
-        {{ Form::model(['route' =>['nerds.store'], 'method' => 'POST' ]) }}
+        {!! Form::open(['route' =>['nerds.store'], 'method' => 'POST' ]) !!}
 
         <div class="form-group">
              {{Form::label('name','', 'Name')}}
             {{Form::text ('name','', array ('class' => 'form-control'))}}
+        </div>
+
+        <div class="form-group">
+            {{ Form::label('email','', 'Email') }}
+            {{ Form::email('email','',array('class' => 'form-control')) }}
         </div>
 
 
@@ -32,7 +37,7 @@
             {{ Form::select('nerd_level', array('0' => 'Select a Level', '1' => 'Sees Sunlight', '2' => 'Foosball Fanatic', '3' => 'Basement Dweller'),  array('class' => 'form-control')) }}
 
 
-        {{ Form::submit('Create the Nerd!','', array('class' => 'btn btn-primary')) }}
+        {{ Form::submit('Create the Nerd!', array('class' => 'btn btn-primary')) }}
         {{ Form::close() }}
 
     </div>

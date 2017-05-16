@@ -45,6 +45,11 @@
                 <!-- we will also add show, edit, and delete buttons -->
                 <td>
 
+                    {{ Form::open(array ('url' => 'nerds/' . $value->id, 'class' => 'pull-right')) }}
+                        {{Form::hidden ('_method', 'DELETE') }}
+                        {{form::submit('Deletar Nerd', array('class' => 'btn btn-danger'))}}
+                    {{Form::close()}}
+
                     <!-- delete the nerd (uses the destroy method DESTROY /nerds/{id} -->
                     <!-- we will add this later since its a little more complicated than the other two buttons -->
 
